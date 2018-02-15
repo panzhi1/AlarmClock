@@ -48,10 +48,10 @@
 
             </intent-filter>
         </activity>
-        <!--<activity-->
-            <!--android:name=".activities.ThemeActivity"-->
-            <!--android:launchMode="singleTop"-->
-            <!--android:theme="@style/Transparent.Light"/>-->
+        <activity
+            android:name=".activities.ThemeActivity"
+            android:launchMode="singleTop"
+            android:theme="@style/Transparent.Light"/>
         <activity
             android:name=".activities.AlarmClockNewActivity"
             android:launchMode="singleTop"

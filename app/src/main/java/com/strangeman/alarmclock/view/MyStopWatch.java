@@ -1,6 +1,8 @@
 package com.strangeman.alarmclock.view;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.graphics.BlurMaskFilter;
 import android.graphics.Canvas;
 import android.graphics.Color;
@@ -12,6 +14,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.strangeman.alarmclock.R;
+import com.strangeman.alarmclock.common.AlarmClockCommon;
 import com.strangeman.alarmclock.util.MyUtil;
 
 import java.util.Calendar;
@@ -149,13 +152,13 @@ public class MyStopWatch extends View {
             initialize(canvas);
             mIsInitialized = true;
         }
+        updateDegree();
         // 画表盘背景的圆圈
         canvas.drawCircle(mCenterX, mCenterY, mCircleRadiusWatcher, mPaintCircleBackground);
         // 画弧形
         canvas.drawArc(mRectF, -90, mCurrentDegree, false, mPaintArc);
-        // 画按钮
 
-        // 设置显示的剩余时间
+        // 设置显示的秒表时间
         setDisplayNumber();
         // 画剩余时间
         canvas.drawText(mDisplayWatchTime, mCenterX - mRect.width() / 2,
@@ -203,7 +206,7 @@ public class MyStopWatch extends View {
         mPaintCircleBackground.setStyle(Paint.Style.STROKE);
         mPaintCircleBackground.setAntiAlias(true);
 
-        // 剩余时间颜色
+        // 秒表时间颜色
         int colorRemainTime = Color.WHITE;
 
 
@@ -221,7 +224,7 @@ public class MyStopWatch extends View {
         mPaintRemainTime.setAntiAlias(true);
         mPaintRemainTime.getTextBounds("00:00", 0, "00:00".length(), mRect);
 
-        //用于绘制圆弧尽头的辉光效果,辉光区域就是dragButton的区域
+
         mPaintGlowEffect.setMaskFilter(new BlurMaskFilter(2 * mStrokeWidth / 3, BlurMaskFilter.Blur.NORMAL));
         mPaintGlowEffect.setAntiAlias(true);
         mPaintGlowEffect.setColor(colorRemainTime);
@@ -250,36 +253,6 @@ public class MyStopWatch extends View {
         setMeasuredDimension(width, height);
     }
 
-    public interface OnInitialFinishListener {
-        void onInitialFinish();
-    }
-
-    /**
-     * 根据用户在屏幕划过的轨迹更新角度
-     *
-     * @param eventX eventX
-     * @param eventY eventY
-     * @return 角度
-     */
-    private float getDegree(float eventX, float eventY) {
-        // x轴边
-        double tx = eventX - mCenterX;
-        // y轴边
-        double ty = eventY - mCenterY;
-        // 开正平方根,求出滑动点到圆心的距离（斜边）
-        double t_length = Math.sqrt(tx * tx + ty * ty);
-        // 根据反余弦求出弧度
-        double radians = Math.acos(ty / t_length);
-        // y的坐标轴是反的所以需要用 180-角度 // Math.toDegrees： 根据角度转化为弧度
-        float degree = 180 - (float) Math.toDegrees(radians);
-
-        // 当转到负坐标轴一侧
-        if (mCenterX > eventX) {
-            degree = 180 + (float) Math.toDegrees(radians);
-        }
-
-        return degree;
-    }
 
     /**
      * 设置显示的剩余时间
@@ -311,4 +284,55 @@ public class MyStopWatch extends View {
         }
         return result;
     }
+
+    /**
+     * 更新角度，角度由剩余时间决定
+     * 度数 = （（分钟数 * 60 + 秒数） / 60分 * 60秒） * 360度 = （分钟数 * 60 + 秒数） * /10.0
+     */
+    private void updateDegree() {
+        mCurrentDegree = (float) ((mTimeStart.get(Calendar.MINUTE) * 60 + mTimeStart.get(Calendar.SECOND)) / 10.0);
+    }
+
+    public void updateDisplayTime() {
+        if (mIsStarted) {
+            mTimeStart.add(Calendar.MILLISECOND, 1000);
+            invalidate();
+        }
+    }
+
+//    public void setTime(long time){
+//        mIsStarted=true;
+//        mTimeStart.setTimeInMillis(time);
+//        invalidate();
+//    }
+
+    public boolean start(){
+        mIsStarted=true;
+        return mIsStarted;
+    }
+
+    public void stop() {
+        mIsStarted=false;
+        saveTime(mTimeStart.getTimeInMillis(),false);
+    }
+
+    /**
+     * 重置
+     */
+    public void reset() {
+        mIsStarted = false;
+        saveTime(0, false);
+        mIsInitialized = false;
+        invalidate();
+    }
+
+    private void saveTime(long watchTime,boolean IsStart) {
+        SharedPreferences preferences = getContext().getSharedPreferences(
+                AlarmClockCommon.EXTRA_AC_SHARE, Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putLong(AlarmClockCommon.COUNTDOWN_TIME,watchTime );
+        editor.putBoolean("IsStart", IsStart);
+        editor.apply();
+    }
+
 }

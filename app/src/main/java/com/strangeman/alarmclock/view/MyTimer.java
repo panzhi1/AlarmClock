@@ -398,18 +398,6 @@ public class MyTimer extends View {
         super.onMeasure(widthMeasureSpec, heightMeasureSpec);
         // 控件默认宽度（屏幕宽度）
         int defaultViewWidth = (int) (360 * getResources().getDisplayMetrics().density);
-/*        int width = getDimension(defaultViewWidth, widthMeasureSpec);
-//        int height = getDimension(width, heightMeasureSpec);
-
-        mViewWidth = width;
-        // FIXME :
-//        mViewHeight = height;
-
-        float density = getResources().getDisplayMetrics().density;
-        mViewHeight = defaultViewWidth / 3 * 2 + 60 * density;
-
-        setMeasuredDimension(width, (int) mViewHeight);*/
-
         int width = getDimension(defaultViewWidth, widthMeasureSpec);
         int height = getDimension(width, heightMeasureSpec);
 
@@ -516,12 +504,8 @@ public class MyTimer extends View {
     public boolean isStarted() {
         return mIsStarted;
     }
-    //    private Handler mTimeHandler;
 
     public void updateDisplayTime() {
-//        LogUtil.d("MyTimer", "剩余时间：" + MyUtil.formatTime(mTimeRemain.get(Calendar.MINUTE),
-//                mTimeRemain.get(Calendar.SECOND)));
-        // 时间不为0，继续倒计时
         if (!isTimeEmpty()) {
             mTimeRemain.add(Calendar.MILLISECOND, -1000);
             invalidate();
@@ -546,60 +530,13 @@ public class MyTimer extends View {
         // 倒计时
         if (mModel == TimeModel.Timer) {
             if (!isTimeEmpty()) {
-//                if (mTimeHandler == null) {
-//                    mTimeHandler = new TimerHandler(MyTimer.this);
-//                }
                 setRemainTime(false);
-//                mTimerTask = new TimerTask() {
-//                    @Override
-//                    public void run() {
-//                        // 时间不为0，继续倒计时
-//                        if (!isTimeEmpty()) {
-//                            Message message = new Message();
-//                            message.what = STARTING;
-//                            mTimeHandler.sendMessage(message);
-//                            // 停止倒计时
-//                        } else {
-//                            Message message = new Message();
-//                            message.what = STOP;
-//                            mTimeHandler.sendMessage(message);
-//                        }
-//
-//                    }
-//                };
-//
-//                new Timer(true).schedule(mTimerTask, 1000, 1000);
                 mIsStarted = true;
-
                 if (mRemainTimeChangeListener != null) {
                     mRemainTimeChangeListener.onTimerStart(mTimeRemain.getTimeInMillis());
                 }
             }
-        } /*else if (mModel == TimeModel.StopWatch) {
-            if (!isMaxTime() && !mIsStarted) {
-                mTimerTask = new TimerTask() {
-                    @Override
-                    public void run() {
-                        if (!isMaxTime()) {
-                            Message message = new Message();
-                            message.what = 11;
-                            mTimeHandler.sendMessage(message);
-                        } else {
-                            Message message = new Message();
-                            message.what = 12;
-                            mTimeHandler.sendMessage(message);
-                        }
-                    }
-                };
-
-                timer.schedule(mTimerTask, 1000, 1000);
-                mIsStarted = true;
-
-                if (mRemainTimeChangeListener != null) {
-                    mRemainTimeChangeListener.onTimerStart(mTimeStart.getTimeInMillis());
-                }
-            }
-        }*/
+        }
         return mIsStarted;
     }
 

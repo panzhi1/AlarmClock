@@ -214,10 +214,6 @@ public class TimeFragment extends LazyLoadFragment implements View.OnClickListen
                 setStratLlyt2Visible();
                 setStopVisible();
                 break;
-            // 快捷便签
-//            case R.id.btn_quick:
-//                displayQuickOptions();
-//                break;
             // 开始2
             case R.id.btn_start2:
                 startCountDown();
