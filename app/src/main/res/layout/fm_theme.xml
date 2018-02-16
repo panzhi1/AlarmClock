@@ -17,12 +17,6 @@
         <TextView
             style="@style/action_title"
             android:text="@string/theme"/>
-
-        <TextView
-            android:id="@+id/custom_define_btn"
-            style="@style/action_tv"
-            android:layout_alignParentRight="true"
-            android:text="@string/custom_define"/>
     </RelativeLayout>
 
     <FrameLayout

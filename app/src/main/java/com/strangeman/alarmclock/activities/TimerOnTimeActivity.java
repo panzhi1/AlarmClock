@@ -11,10 +11,8 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import com.strangeman.alarmclock.R;
-import com.strangeman.alarmclock.bean.event.TimerOnTimeEvent;
 import com.strangeman.alarmclock.common.AlarmClockCommon;
 import com.strangeman.alarmclock.util.AudioPlayer;
-import com.strangeman.alarmclock.util.OttoBus;
 
 /**
  * Created by Administrator on 2018/2/10.
@@ -41,7 +39,7 @@ public class TimerOnTimeActivity extends BaseActivitySimple implements View.OnCl
         playRing();
         initViews();
 
-        OttoBus.getInstance().post(new TimerOnTimeEvent());
+//        OttoBus.getInstance().post(new TimerOnTimeEvent());
     }
 
     private void playRing() {

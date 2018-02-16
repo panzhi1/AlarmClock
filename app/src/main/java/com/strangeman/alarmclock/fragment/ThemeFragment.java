@@ -172,14 +172,6 @@ public class ThemeFragment extends BaseFragment implements View.OnClickListener 
             case R.id.action_back:
                 getActivity().finish();
                 break;
-            case R.id.custom_define_btn:
-                if (MyUtil.isFastDoubleClick()) {
-                    return;
-                }
-//                Intent intent = new Intent(getActivity(), LocalAlbumActivity.class);
-//                startActivity(intent);
-//                getActivity().overridePendingTransition(R.anim.zoomin, 0);
-                break;
         }
     }
 

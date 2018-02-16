@@ -1,28 +1,14 @@
 package com.strangeman.alarmclock.fragment;
 
-import android.animation.IntEvaluator;
-import android.animation.ValueAnimator;
 import android.app.ActivityManager;
-import android.app.Dialog;
-import android.content.ActivityNotFoundException;
-import android.content.ClipData;
-import android.content.ClipboardManager;
 import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageManager;
-import android.net.Uri;
-import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
 import android.widget.ScrollView;
-import android.widget.TextView;
 
 import com.squareup.otto.Subscribe;
 import com.strangeman.alarmclock.R;
@@ -31,11 +17,6 @@ import com.strangeman.alarmclock.bean.event.WallpaperEvent;
 import com.strangeman.alarmclock.listener.OnVisibleListener;
 import com.strangeman.alarmclock.util.MyUtil;
 import com.strangeman.alarmclock.util.OttoBus;
-
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.util.List;
 
 /**
  * Created by panzhi on 2018/1/22.
