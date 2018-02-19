@@ -1,7 +1,6 @@
 package com.strangeman.alarmclock.fragment;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -77,9 +76,7 @@ public class ThemeFragment extends BaseFragment implements View.OnClickListener 
         MyUtil.setBackgroundBlur(mBackground, getActivity());
 
         ImageView backBtn = (ImageView) view.findViewById(R.id.action_back);
-        TextView customDefineBtn = (TextView) view.findViewById(R.id.custom_define_btn);
         backBtn.setOnClickListener(this);
-        customDefineBtn.setOnClickListener(this);
 
         // 显示主题壁纸的GridView
         GridView gridView = (GridView) view.findViewById(R.id.gv_change_theme);

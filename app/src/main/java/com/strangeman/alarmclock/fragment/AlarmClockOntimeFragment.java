@@ -35,6 +35,7 @@ import com.strangeman.alarmclock.bean.AlarmClock;
 import com.strangeman.alarmclock.broadcast.AlarmClockBroadcast;
 import com.strangeman.alarmclock.common.AlarmClockCommon;
 import com.strangeman.alarmclock.common.AlarmClockStatus;
+import com.strangeman.alarmclock.util.ActivityCollector;
 import com.strangeman.alarmclock.util.AudioPlayer;
 import com.strangeman.alarmclock.view.MySlidingView;
 
@@ -119,11 +120,6 @@ public class AlarmClockOntimeFragment extends BaseFragment implements
      * 显示当前时间Handler
      */
     private ShowTimeHandler mShowTimeHandler;
-
-    private ViewGroup mWeatherInfoGroup;
-    private ProgressBar mWeatherPbar;
-    private TextView mWeatherTypeTv;
-    private TextView mUmbrellaTv;
     private String mCurrentTimeDisplay = "";
 
     /**
@@ -259,31 +255,7 @@ public class AlarmClockOntimeFragment extends BaseFragment implements
     @Override
     public void onStop() {
         super.onStop();
-//        LogUtil.d(LOG_TAG, getActivity().toString() + "：onStop");
-        // 当第二个闹钟响起时第一个闹钟需要进入小睡或关闭闹钟（启动此Activity时加上
-        // 【Intent.FLAG_ACTIVITY_CLEAR_TOP】flag 会自动关闭当前Activity，只有
-        // 【Intent.FLAG_ACTIVITY_NEW_TASK】 flag的话，
-        // 只是暂停，当第二个Activity结束后后会重新恢复显示）
 
-//        LogUtil.d(LOG_TAG, getActivity().toString() + "：activityNumber: "
-//                + WeacStatus.sActivityNumber);
-
-        // 当点击关闭或者小睡按钮或者画面关闭状态时或点击电源键闹钟响起会执行一次onStop()
-        // 当点击按钮
-        // if (mIsOnclick) {
-        // // 点击按钮后，执行程序结束处理，故Activity数减1
-        // WeacStatus.activityNumber--;
-        // return;
-        // }
-        // // 第二个闹钟Activity启动
-        // if (WeacStatus.activityNumber > 1) {
-        // WeacStatus.activityNumber--;
-        // // // 停止运行更新时间的线程
-        // // mIsRun = false;
-        // // // 小睡
-        // // nap();
-        //
-        // }
     }
 
     @Override
@@ -335,9 +307,9 @@ public class AlarmClockOntimeFragment extends BaseFragment implements
     private void finishActivity() {
         // 点击按钮标记
         mIsOnclick = true;
-
-        getActivity().finish();
-        getActivity().overridePendingTransition(0, 0);
+        ActivityCollector.finishAll();
+//        getActivity().finish();
+//        getActivity().overridePendingTransition(0, 0);
     }
 
     /**

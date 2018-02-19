@@ -81,8 +81,8 @@ public class MoreFragment extends LazyLoadFragment {
     }
 
     private void assignViews(View view) {
-        ScrollView scrollView = (ScrollView) view.findViewById(R.id.scroll_view);
-//        OverScrollDecoratorHelper.setUpOverScroll(scrollView);
+//        ScrollView scrollView = (ScrollView) view.findViewById(R.id.scroll_view);
+////        OverScrollDecoratorHelper.setUpOverScroll(scrollView);
 
 
         // 主题

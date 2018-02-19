@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
 import com.strangeman.alarmclock.R;
+import com.strangeman.alarmclock.util.ActivityCollector;
 
 /**
  * Created by panzhi on 2018/2/3.
@@ -23,6 +24,7 @@ public abstract class SingleFragmentOrdinaryActivity extends BaseActivityOrdinar
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fm_activity);
+        ActivityCollector.addActivity(this);
         FragmentManager fm = getSupportFragmentManager();
         Fragment fragment = fm.findFragmentById(R.id.fragment_containers);
         if (fragment == null) {
@@ -33,4 +35,11 @@ public abstract class SingleFragmentOrdinaryActivity extends BaseActivityOrdinar
         }
 
     }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityCollector.removeActivity(this);
+    }
+
 }

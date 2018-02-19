@@ -297,10 +297,7 @@ public class AlarmClockFragment extends BaseFragment implements View.OnClickList
         deleteList(event);
     }
 
-//    @Subscribe
-//    public void OnShakeExplainClose(ShakeExplainCloseEvent event) {
-//        isShowingShakeExplain = false;
-//    }
+
 
     private void addList(AlarmClock ac) {
         mAlarmClockList.clear();
@@ -380,73 +377,7 @@ public class AlarmClockFragment extends BaseFragment implements View.OnClickList
         }
     }
 
-/*    @Override
-    public Loader<Cursor> onCreateLoader(int arg0, Bundle arg1) {
-        return new CursorLoader(getActivity(), WeacDBMetaData.CONTENT_URI,
-                null, null, null, WeacDBMetaData.SORT_ORDER);
-    }
 
-    @Override
-    public void onLoadFinished(Loader<Cursor> loader, Cursor cursor) {
-        if (cursor == null) {
-            return;
-        }
-        mAlarmClockList.clear();
-        for (cursor.moveToFirst(); !cursor.isAfterLast(); cursor.moveToNext()) {
-            int id = cursor.getInt(cursor.getColumnIndex(WeacDBMetaData.AC_ID));
-            int hour = cursor.getInt(cursor
-                    .getColumnIndex(WeacDBMetaData.AC_HOUR));
-            int minute = cursor.getInt(cursor
-                    .getColumnIndex(WeacDBMetaData.AC_MINUTE));
-            String weeks = cursor.getString(cursor
-                    .getColumnIndex(WeacDBMetaData.AC_WEEKS));
-            String repeat = cursor.getString(cursor
-                    .getColumnIndex(WeacDBMetaData.AC_REPEAT));
-            String tag = cursor.getString(cursor
-                    .getColumnIndex(WeacDBMetaData.AC_TAG));
-            String ringName = cursor.getString(cursor
-                    .getColumnIndex(WeacDBMetaData.AC_RING_NAME));
-            String ringUrl = cursor.getString(cursor
-                    .getColumnIndex(WeacDBMetaData.AC_RING_URL));
-            int ringPager = cursor.getInt(cursor
-                    .getColumnIndex(WeacDBMetaData.AC_RING_PAGER));
-            int volume = cursor.getInt(cursor
-                    .getColumnIndex(WeacDBMetaData.AC_VOLUME));
-            boolean vibrate = cursor.getInt(cursor
-                    .getColumnIndex(WeacDBMetaData.AC_VIBRATE)) == 1;
-            boolean nap = cursor.getInt(cursor
-                    .getColumnIndex(WeacDBMetaData.AC_NAP)) == 1;
-            int napInterval = cursor.getInt(cursor
-                    .getColumnIndex(WeacDBMetaData.AC_NAP_INTERVAL));
-            int napTimes = cursor.getInt(cursor
-                    .getColumnIndex(WeacDBMetaData.AC_NAP_TIMES));
-            boolean weaPrompt = cursor.getInt(cursor
-                    .getColumnIndex(WeacDBMetaData.AC_WEA_PROMPT)) == 1;
-            boolean onOff = cursor.getInt(cursor
-                    .getColumnIndex(WeacDBMetaData.AC_ON_OFF)) == 1;
-            AlarmClock alarmClock = new AlarmClock(id, hour, minute, repeat,
-                    weeks, tag, ringName, ringUrl, ringPager, volume, vibrate,
-                    nap, napInterval, napTimes, weaPrompt, onOff);
-            mAlarmClockList.add(alarmClock);
-            // 当闹钟为开时刷新开启闹钟
-            if (onOff) {
-                MyUtil.startAlarmClock(getActivity(), alarmClock);
-            }
-
-        }
-        // 列表为空时不显示删除，完成按钮
-        if (mAlarmClockList.size() == 0) {
-            mAcceptAction.setVisibility(View.GONE);
-            mEditAction.setVisibility(View.VISIBLE);
-            mAdapter.displayDeleteButton(false);
-        }
-        mAdapter.notifyDataSetChanged();
-    }
-
-    @Override
-    public void onLoaderReset(Loader<Cursor> arg0) {
-
-    }*/
 
 
     @Override

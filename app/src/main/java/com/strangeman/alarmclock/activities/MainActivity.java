@@ -16,6 +16,7 @@ import com.strangeman.alarmclock.fragment.AlarmClockFragment;
 import com.strangeman.alarmclock.fragment.MoreFragment;
 import com.strangeman.alarmclock.fragment.StopWatchFragment;
 import com.strangeman.alarmclock.fragment.TimeFragment;
+import com.strangeman.alarmclock.util.ActivityCollector;
 import com.strangeman.alarmclock.util.MyUtil;
 
 import java.util.ArrayList;
@@ -79,6 +80,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ActivityCollector.addActivity(this);
         setSwipeBackEnable(true);
         setContentView(R.layout.activity_main);
         setThemeWallpaper();
@@ -285,5 +287,11 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         setTextView(R.drawable.ic_time_unselect, tv_time, mUnSelectColor);
         // 设置更多Tab为未选中状态
         setTextView(R.drawable.ic_more_unselect, tv_more, mUnSelectColor);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityCollector.removeActivity(this);
     }
 }

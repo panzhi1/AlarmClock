@@ -4,6 +4,7 @@ import android.os.Bundle;
 
 import com.strangeman.alarmclock.bean.AlarmClock;
 import com.strangeman.alarmclock.common.AlarmClockCommon;
+import com.strangeman.alarmclock.util.ActivityCollector;
 import com.strangeman.alarmclock.util.MyUtil;
 
 /**
@@ -20,5 +21,12 @@ public class AlarmClockNapNotificationActivity extends BaseActivitySimple{
         // 关闭小睡
         MyUtil.cancelAlarmClock(this, -alarmClock.getId());
         finish();
+        ActivityCollector.addActivity(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityCollector.removeActivity(this);
     }
 }

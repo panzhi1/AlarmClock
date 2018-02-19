@@ -23,6 +23,7 @@ import com.squareup.otto.Subscribe;
 import com.strangeman.alarmclock.R;
 import com.strangeman.alarmclock.activities.RingSelectActivity;
 import com.strangeman.alarmclock.activities.TimerOnTimeActivity;
+import com.strangeman.alarmclock.bean.event.TimerOnTimeEvent;
 import com.strangeman.alarmclock.bean.event.TimerStartEvent;
 import com.strangeman.alarmclock.bean.model.TimeModel;
 import com.strangeman.alarmclock.common.AlarmClockCommon;

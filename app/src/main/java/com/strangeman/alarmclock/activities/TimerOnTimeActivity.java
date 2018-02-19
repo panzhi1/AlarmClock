@@ -12,6 +12,7 @@ import android.widget.Button;
 
 import com.strangeman.alarmclock.R;
 import com.strangeman.alarmclock.common.AlarmClockCommon;
+import com.strangeman.alarmclock.util.ActivityCollector;
 import com.strangeman.alarmclock.util.AudioPlayer;
 
 /**
@@ -27,6 +28,7 @@ public class TimerOnTimeActivity extends BaseActivitySimple implements View.OnCl
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_timer_on_time);
+        ActivityCollector.addActivity(this);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
@@ -89,8 +91,14 @@ public class TimerOnTimeActivity extends BaseActivitySimple implements View.OnCl
         // 设置铃声音量
         mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC,
                 mCurrentVolume, AudioManager.ADJUST_SAME);
-        finish();
+        ActivityCollector.finishAll();
         overridePendingTransition(0, R.anim.zoomout);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        ActivityCollector.removeActivity(this);
     }
 }
 
