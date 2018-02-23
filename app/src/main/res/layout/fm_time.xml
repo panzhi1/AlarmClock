@@ -3,14 +3,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="54dp"
-        android:gravity="center"
-        android:text="@string/time"
-        android:textColor="@color/white_trans90"
-        android:textSize="20sp"/>
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

@@ -148,10 +148,6 @@ public class AlarmClockNewFragment extends BaseFragment implements View.OnClickL
         return view;
     }
 
-//    private void setBounce(View view) {
-//        ScrollView scrollView = (ScrollView) view.findViewById(R.id.scrollView1);
-//        OverScrollDecoratorHelper.setUpOverScroll(scrollView);
-//    }
 
     private void initVolume(View view) {
         final SharedPreferences share = getActivity().getSharedPreferences(AlarmClockCommon.EXTRA_AC_SHARE,

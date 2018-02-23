@@ -18,6 +18,7 @@ import android.view.ViewGroup;
 import android.view.animation.OvershootInterpolator;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.squareup.otto.Subscribe;
 import com.strangeman.alarmclock.R;
@@ -71,12 +72,12 @@ public class AlarmClockFragment extends BaseFragment implements View.OnClickList
     /**
      * 操作栏编辑按钮
      */
-    private ImageView mEditAction;
+    private TextView mEditAction;
 
     /**
      * 操作栏编辑完成按钮
      */
-    private ImageView mAcceptAction;
+    private TextView mAcceptAction;
 
     /**
      * List内容为空时的视图
@@ -105,8 +106,8 @@ public class AlarmClockFragment extends BaseFragment implements View.OnClickList
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 //        mRecyclerView.setLayoutManager(new ErrorCatchLinearLayoutManager(getActivity(),
 //                LinearLayoutManager.VERTICAL, false));
-        //设置Item增加、移除动画
- //       mRecyclerView.setItemAnimator(new ScaleInLeftAnimator(new OvershootInterpolator(1f)));
+//        设置Item增加、移除动画
+//        mRecyclerView.setItemAnimator(new ScaleInLeftAnimator(new OvershootInterpolator(1f)));
 //        mRecyclerView.getItemAnimator().setAddDuration(300);
 //        mRecyclerView.getItemAnimator().setRemoveDuration(300);
 //        mRecyclerView.getItemAnimator().setMoveDuration(300);
@@ -120,17 +121,16 @@ public class AlarmClockFragment extends BaseFragment implements View.OnClickList
         mAdapter.setOnItemClickListener(onItemClickListener);
 
         // 操作栏新建按钮
-        ImageView newAction = (ImageView) view.findViewById(R.id.action_new);
+        TextView newAction = (TextView) view.findViewById(R.id.action_new);
         newAction.setOnClickListener(this);
 
         // 编辑闹钟
-        mEditAction = (ImageView) view.findViewById(R.id.action_edit);
+        mEditAction = (TextView) view.findViewById(R.id.action_edit);
         mEditAction.setOnClickListener(this);
 
         // 完成按钮
-        mAcceptAction = (ImageView) view.findViewById(R.id.action_accept);
+        mAcceptAction = (TextView) view.findViewById(R.id.action_accept);
         mAcceptAction.setOnClickListener(this);
-
         updateList();
         return view;
     }

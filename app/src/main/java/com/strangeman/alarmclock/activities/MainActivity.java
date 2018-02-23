@@ -183,23 +183,23 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             // 闹钟
             case 0:
                 // 改变闹钟控件的图片和文字颜色
-                setTextView(R.drawable.ic_alarm_clock_select, tv_alarm_clock,
+                setTextView( tv_alarm_clock,
                         mSelectColor);
                 break;
             // 计时
             case 1:
                 // 改变计时控件的图片和文字颜色
-                setTextView(R.drawable.ic_time_select, tv_time, mSelectColor);
+                setTextView( tv_time, mSelectColor);
                 break;
             // 秒表
             case 2:
                 // 改变秒表控件的图片和文字颜色
-                setTextView(R.drawable.ic_stop_watch_select, tv_stop_watch, mSelectColor);
+                setTextView( tv_stop_watch, mSelectColor);
                 break;
             // 更多
             case 3:
                 // 改变更多控件的图片和文字颜色
-                setTextView(R.drawable.ic_more_select, tv_more, mSelectColor);
+                setTextView(tv_more, mSelectColor);
                 break;
         }
 
@@ -257,19 +257,17 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
 
     /**
      * 设置Tab布局
-     *
-     * @param iconId   Tab图标
      * @param textView Tab文字
      * @param color    Tab文字颜色
      */
-    private void setTextView(int iconId, TextView textView, int color) {
-        @SuppressWarnings("deprecation") Drawable drawable = getResources().getDrawable(iconId);
-        if (drawable != null) {
-            drawable.setBounds(0, 0, drawable.getMinimumWidth(),
-                    drawable.getMinimumHeight());
-            // 设置图标
-            textView.setCompoundDrawables(null, drawable, null, null);
-        }
+    private void setTextView(TextView textView, int color) {
+//        @SuppressWarnings("deprecation") Drawable drawable = getResources().getDrawable(iconId);
+//        if (drawable != null) {
+//            drawable.setBounds(0, 0, drawable.getMinimumWidth(),
+//                    drawable.getMinimumHeight());
+//            // 设置图标
+//            textView.setCompoundDrawables(null, drawable, null, null);
+//        }
         // 设置文字颜色
         textView.setTextColor(color);
     }
@@ -279,14 +277,14 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
      */
     private void clearSelection() {
         // 设置闹钟Tab为未选中状态
-        setTextView(R.drawable.ic_alarm_clock_unselect, tv_alarm_clock,
+        setTextView( tv_alarm_clock,
                 mUnSelectColor);
         // 设置秒表Tab为未选中状态
-        setTextView(R.drawable.ic_stop_watch_unselect, tv_stop_watch, mUnSelectColor);
+        setTextView( tv_stop_watch, mUnSelectColor);
         // 设置计时Tab为未选中状态
-        setTextView(R.drawable.ic_time_unselect, tv_time, mUnSelectColor);
+        setTextView(tv_time, mUnSelectColor);
         // 设置更多Tab为未选中状态
-        setTextView(R.drawable.ic_more_unselect, tv_more, mUnSelectColor);
+        setTextView(tv_more, mUnSelectColor);
     }
 
     @Override

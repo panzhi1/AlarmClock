@@ -9,9 +9,9 @@
     <string name="alarm_clock">闹钟</string>
     <string name="time">计时</string>
     <string name="stop_watch">秒表</string>
-    <string name="more">更多</string>
+    <string name="more">主题</string>
     <!-- 闹铃界面 -->
-    <string name="press_right_top">按右上的  </string>
+    <string name="press_right_top">按下面的  </string>
     <string name="add_alarm_clock">  添加闹钟  </string>
     <string name="retrieve_alarm_clock_success">被删除的闹钟已成功找回</string>
     <!-- 新建编辑闹钟界面 -->
@@ -25,9 +25,9 @@
     <string name="vibrate">振动</string>
     <string name="nap">小睡</string>
     <string name="wea_prompt">天气提示</string>
-    <string name="countdown_day_hour_minute">距闹钟响起还有%1$d天%2$d小时%3$d分</string>
-    <string name="countdown_hour_minute">距闹钟响起还有%1$d小时%2$d分</string>
-    <string name="countdown_minute">距闹钟响起还有%1$d分钟</string>
+    <string name="countdown_day_hour_minute">距下一次闹钟响起还有%1$d天%2$d小时%3$d分</string>
+    <string name="countdown_hour_minute">距下一次闹钟响起还有%1$d小时%2$d分</string>
+    <string name="countdown_minute">距下一次闹钟响起还有%1$d分钟</string>
     <string name="monday">周一</string>
     <string name="tuesday">周二</string>
     <string name="wednesday">周三</string>
