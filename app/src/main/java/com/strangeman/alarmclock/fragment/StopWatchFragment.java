@@ -13,13 +13,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewStub;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import com.strangeman.alarmclock.R;
+import com.strangeman.alarmclock.adapter.TimeAdapter;
+import com.strangeman.alarmclock.bean.WatchTime;
 import com.strangeman.alarmclock.common.AlarmClockCommon;
 import com.strangeman.alarmclock.listener.OnVisibleListener;
 import com.strangeman.alarmclock.service.CountDownService;
 import com.strangeman.alarmclock.view.MyStopWatch;
+
+import java.util.ArrayList;
+import java.util.List;
 
 
 /**
@@ -59,13 +65,29 @@ public class StopWatchFragment extends LazyLoadFragment implements View.OnClickL
     private TextView resetBtn;
 
     /**
+     * 计次按钮
+     */
+    private TextView countBtn;
+
+    /**
      * 绑定倒计时service
      */
     private boolean mIsBind;
 
+    /**
+     * 计次信息
+     */
+    private List<WatchTime> watchTimeList;
+
+    private int count;
+
+    private TimeAdapter adapter;
 
     private OnVisibleListener mOnVisibleListener;
 
+    private ViewGroup mStartLLyt;
+
+    private ViewGroup mStartLLyt2;
 
     @Override
     protected void lazyLoad() {
@@ -79,7 +101,8 @@ public class StopWatchFragment extends LazyLoadFragment implements View.OnClickL
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         final View view = inflater.inflate(R.layout.fm_stop_watch, container, false);
-
+        watchTimeList=new ArrayList<>();
+        count=0;
         mOnVisibleListener = new OnVisibleListener() {
             @Override
             public void onVisible() {
@@ -102,17 +125,26 @@ public class StopWatchFragment extends LazyLoadFragment implements View.OnClickL
 
     private void initViews(View view) {
 
+        mStartLLyt = (ViewGroup) view.findViewById(R.id.btn_start_llyt);
+        mStartLLyt2 = (ViewGroup) view.findViewById(R.id.btn_start_llyt2);
+
         mStartBtn = (TextView) view.findViewById(R.id.btn_start);
         mStopBtn = (TextView) view.findViewById(R.id.btn_stop);
         resetBtn = (TextView) view.findViewById(R.id.btn_reset);
+        countBtn=(TextView) view.findViewById(R.id.btn_time);
 
         mStartBtn.setOnClickListener(StopWatchFragment.this);
         mStopBtn.setOnClickListener(StopWatchFragment.this);
         resetBtn.setOnClickListener(StopWatchFragment.this);
+        countBtn.setOnClickListener(StopWatchFragment.this);
 
         myStopWatch=(MyStopWatch)view.findViewById(R.id.watch);
 
         mIsPrepared = true;
+
+        adapter=new TimeAdapter(getActivity(),R.layout.time_item,watchTimeList);
+        ListView listView=(ListView)view.findViewById(R.id.list_view);
+        listView.setAdapter(adapter);
     }
 
 //    private void setTime() {
@@ -128,20 +160,30 @@ public class StopWatchFragment extends LazyLoadFragment implements View.OnClickL
             // 开始
             case R.id.btn_start:
                 startWatch();
-                setStopVisible();
+                setStratLlyt2Visible();
                 break;
             // 暂停
             case R.id.btn_stop:
                 myStopWatch.stop();
                 stopCountDown();
-                setStartVisible();
+                setStratLlytVisible();
                 break;
             // 重置
             case R.id.btn_reset:
                 myStopWatch.reset();
+                count=0;
+                adapter.clear();
+                adapter.notifyDataSetChanged();
                 stopCountDown();
-                setStartVisible();
+                setStratLlytVisible();
                 break;
+            case R.id.btn_time:
+                count++;
+                WatchTime watchTime=new WatchTime();
+                watchTime.setTag("计次"+count);
+                watchTime.setTime(myStopWatch.getmDisplayWatchTime());
+                adapter.add(watchTime);
+                adapter.notifyDataSetChanged();
         }
     }
 
@@ -197,20 +239,36 @@ public class StopWatchFragment extends LazyLoadFragment implements View.OnClickL
         }
     }
 
+//    /**
+//     * 显示开始计时后的暂停按钮
+//     */
+//    private void setStopVisible() {
+//        mStartBtn.setVisibility(View.GONE);
+//        mStopBtn.setVisibility(View.VISIBLE);
+//    }
+
+//    /**
+//     * 显示开始计时后的开始按钮
+//     */
+//    private void setStartVisible() {
+//        mStartBtn.setVisibility(View.VISIBLE);
+//        mStopBtn.setVisibility(View.GONE);
+//    }
+
     /**
-     * 显示开始计时后的暂停按钮
+     * 显示开始计时前的布局
      */
-    private void setStopVisible() {
-        mStartBtn.setVisibility(View.GONE);
-        mStopBtn.setVisibility(View.VISIBLE);
+    private void setStratLlytVisible() {
+        mStartLLyt.setVisibility(View.VISIBLE);
+        mStartLLyt2.setVisibility(View.GONE);
     }
 
     /**
-     * 显示开始计时后的开始按钮
+     * 显示开始计时后的布局
      */
-    private void setStartVisible() {
-        mStartBtn.setVisibility(View.VISIBLE);
-        mStopBtn.setVisibility(View.GONE);
+    private void setStratLlyt2Visible() {
+        mStartLLyt.setVisibility(View.GONE);
+        mStartLLyt2.setVisibility(View.VISIBLE);
     }
 
 }

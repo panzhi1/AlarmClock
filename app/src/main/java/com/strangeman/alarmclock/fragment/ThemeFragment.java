@@ -29,7 +29,7 @@ import java.util.List;
  * Created by Administrator on 2018/2/14.
  */
 
-public class ThemeFragment extends BaseFragment implements View.OnClickListener {
+public class ThemeFragment extends BaseFragment  {
 
     /**
      * Log tag ：ThemeFragment
@@ -75,8 +75,6 @@ public class ThemeFragment extends BaseFragment implements View.OnClickListener 
         mBackground = (ViewGroup) view.findViewById(R.id.background);
         MyUtil.setBackgroundBlur(mBackground, getActivity());
 
-        ImageView backBtn = (ImageView) view.findViewById(R.id.action_back);
-        backBtn.setOnClickListener(this);
 
         // 显示主题壁纸的GridView
         GridView gridView = (GridView) view.findViewById(R.id.gv_change_theme);
@@ -109,20 +107,15 @@ public class ThemeFragment extends BaseFragment implements View.OnClickListener 
 
         });
 
-//        OverScrollDecoratorHelper.setUpOverScroll(gridView); // 点击主题图片有时不响应bug
         return view;
     }
 
     @Subscribe
     public void onWallpaperUpdate(WallpaperEvent wallpaperEvent) {
-        if (mBackground != null) {
-            MyUtil.setBackgroundBlur(mBackground, getActivity());
-            // 不是app自带壁纸
-            if (mAdapter != null && !wallpaperEvent.isAppWallpaper()) {
-                mAdapter.updateSelection("");
-                mAdapter.notifyDataSetChanged();
-            }
-        }
+        ViewGroup vg = (ViewGroup) getActivity().findViewById(
+                R.id.llyt_activity_main);
+        // 更新壁纸
+        MyUtil.setBackground(vg, getActivity());
     }
 
     /**
@@ -163,14 +156,6 @@ public class ThemeFragment extends BaseFragment implements View.OnClickListener 
         this.mAdapter = new ThemeAdapter(getActivity(), mList, mWallpaperName);
     }
 
-    @Override
-    public void onClick(View v) {
-        switch (v.getId()) {
-            case R.id.action_back:
-                getActivity().finish();
-                break;
-        }
-    }
 
     @Override
     public void onDestroy() {

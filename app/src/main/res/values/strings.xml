@@ -2,7 +2,7 @@
 <resources>
 
     <!-- app名 -->
-    <string name="app_name">天气闹钟</string>
+    <string name="app_name">萌宠闹钟</string>
     <string name="version">1.1.3</string>
     <string name="press_again_exit">再按一次退出</string>
     <!-- Tab界面 -->
@@ -211,6 +211,7 @@
     <string name="quick_timer">快捷计时</string>
     <string name="stop">暂停</string>
     <string name="reset">重置</string>
+    <string name="count">计次</string>
     <string name="siesta">午睡</string>
     <string name="facial_mask">面膜</string>
     <string name="instant_noodles">泡面</string>

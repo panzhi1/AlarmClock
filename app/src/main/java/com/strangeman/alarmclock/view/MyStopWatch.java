@@ -335,4 +335,8 @@ public class MyStopWatch extends View {
         editor.apply();
     }
 
+    public String getmDisplayWatchTime(){
+        return mDisplayWatchTime;
+    }
+
 }

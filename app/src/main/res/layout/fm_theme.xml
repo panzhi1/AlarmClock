@@ -5,20 +5,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-
-    <RelativeLayout style="@style/action_llyt">
-
-        <ImageView
-            android:id="@+id/action_back"
-            style="@style/action_icon"
-            android:layout_alignParentLeft="true"
-            android:src="@drawable/ic_action_previous_item"/>
-
-        <TextView
-            style="@style/action_title"
-            android:text="@string/theme"/>
-    </RelativeLayout>
-
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">

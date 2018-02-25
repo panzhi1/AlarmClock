@@ -15,6 +15,7 @@ import com.strangeman.alarmclock.R;
 import com.strangeman.alarmclock.fragment.AlarmClockFragment;
 import com.strangeman.alarmclock.fragment.MoreFragment;
 import com.strangeman.alarmclock.fragment.StopWatchFragment;
+import com.strangeman.alarmclock.fragment.ThemeFragment;
 import com.strangeman.alarmclock.fragment.TimeFragment;
 import com.strangeman.alarmclock.util.ActivityCollector;
 import com.strangeman.alarmclock.util.MyUtil;
@@ -128,7 +129,7 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         // 展示秒表的Fragment
         StopWatchFragment mStopWatchFragment= new StopWatchFragment();
         // 展示更多的Fragment
-        MoreFragment mMoreFragment = new MoreFragment();
+        ThemeFragment mMoreFragment = new ThemeFragment();
 
         mFragmentList.add(mAlarmClockFragment);
         mFragmentList.add(mTimeFragment);
