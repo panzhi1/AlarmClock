@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import org.litepal.crud.DataSupport;
 
 /**
- * Created by panzhi on 2018/1/29.
+ * Created by Administrator on 2018/1/29.
  */
 
 public class AlarmClock extends DataSupport implements Parcelable {

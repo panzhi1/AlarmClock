@@ -39,7 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by panzhi on 2018/1/22.
+ * Created by Administrator on 2018/1/22.
  */
 
 public class AlarmClockFragment extends BaseFragment implements View.OnClickListener {
@@ -104,17 +104,9 @@ public class AlarmClockFragment extends BaseFragment implements View.OnClickList
         mRecyclerView.setHasFixedSize(true);
         //设置布局管理器
         mRecyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
-//        mRecyclerView.setLayoutManager(new ErrorCatchLinearLayoutManager(getActivity(),
-//                LinearLayoutManager.VERTICAL, false));
-//        设置Item增加、移除动画
-//        mRecyclerView.setItemAnimator(new ScaleInLeftAnimator(new OvershootInterpolator(1f)));
-//        mRecyclerView.getItemAnimator().setAddDuration(300);
-//        mRecyclerView.getItemAnimator().setRemoveDuration(300);
-//        mRecyclerView.getItemAnimator().setMoveDuration(300);
-//        mRecyclerView.getItemAnimator().setChangeDuration(300);
         mRecyclerView.setAdapter(mAdapter);
 
-//        OverScrollDecoratorHelper.setUpOverScroll(mRecyclerView, OverScrollDecoratorHelper.ORIENTATION_VERTICAL);
+//
 
         // 监听闹铃item点击事件Listener
         OnItemClickListener onItemClickListener = new OnItemClickListenerImpl();

@@ -16,7 +16,7 @@ import com.strangeman.alarmclock.R;
 import com.strangeman.alarmclock.common.AlarmClockCommon;
 
 /**
- * Created by panzhi on 2018/2/3.
+ * Created by Administrator on 2018/2/3.
  */
 
 public class NapEditFragment extends BaseFragment implements View.OnClickListener {

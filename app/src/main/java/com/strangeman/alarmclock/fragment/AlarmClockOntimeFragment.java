@@ -50,7 +50,7 @@ import java.util.Locale;
 
 /**
  * 闹钟响起画面Fragment
- * Created by panzhi on 2018/1/30.
+ * Created by Administrator on 2018/1/30.
  */
 
 public class AlarmClockOntimeFragment extends BaseFragment implements

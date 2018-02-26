@@ -8,7 +8,7 @@ import com.strangeman.alarmclock.util.ActivityCollector;
 import com.strangeman.alarmclock.util.MyUtil;
 
 /**
- * Created by panzhi on 2018/2/1.
+ * Created by Administrator on 2018/2/1.
  */
 
 public class AlarmClockNapNotificationActivity extends BaseActivitySimple{

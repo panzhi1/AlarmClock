@@ -1,7 +1,7 @@
 package com.strangeman.alarmclock.bean;
 
 /**
- * Created by panzhi on 2018/2/4.
+ * Created by Administrator on 2018/2/4.
  */
 
 public class RingSelectItem {

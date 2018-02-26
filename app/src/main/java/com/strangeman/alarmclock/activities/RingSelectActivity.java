@@ -5,7 +5,7 @@ import android.support.v4.app.Fragment;
 import com.strangeman.alarmclock.fragment.RingSelectFragment;
 
 /**
- * Created by panzhi on 2018/2/3.
+ * Created by Administrator on 2018/2/3.
  */
 
 public class RingSelectActivity extends SingleFragmentDialogActivity {

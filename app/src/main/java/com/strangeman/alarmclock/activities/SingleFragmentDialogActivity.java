@@ -8,7 +8,7 @@ import com.strangeman.alarmclock.R;
 import com.strangeman.alarmclock.util.ActivityCollector;
 
 /**
- * Created by panzhi on 2018/1/30.
+ * Created by Administrator on 2018/1/30.
  */
 
 public abstract class SingleFragmentDialogActivity extends BaseActivitySimple {

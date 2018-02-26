@@ -7,17 +7,6 @@
     <uses-permission android:name="android.permission.RECORD_AUDIO"/>
     <uses-permission android:name="android.permission.INTERNET"/>
 
-    <!-- 以下为百度定位需要权限 -->
-    <!-- 这个权限用于进行网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
-    <!-- 这个权限用于访问GPS定位 -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
-    <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
-    <!-- 获取运营商信息，用于支持提供运营商信息相关的接口 -->
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <!-- 这个权限用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
     <!-- 用于读取手机当前的状态 -->
     <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
 
@@ -75,79 +64,10 @@
             android:name=".activities.NapEditActivity"
             android:launchMode="singleTop"
             android:theme="@style/Theme.MyDialog"/>
-        <!--<activity-->
-            <!--android:name=".activities.RecordOperateActivity"-->
-            <!--android:theme="@style/Theme.MyDialog"/>-->
-        <!--<activity-->
-            <!--android:name=".activities.RecordDetailActivity"-->
-            <!--android:theme="@style/Theme.MyDialog"/>-->
-        <!--<activity-->
-            <!--android:name=".activities.RecordRenameActivity"-->
-            <!--android:theme="@style/Theme.MyDialog"/>-->
-        <!--<activity-->
-            <!--android:name=".activities.RecordDeleteActivity"-->
-            <!--android:theme="@style/Theme.MyDialog"/>-->
-        <!--<activity-->
-            <!--android:name=".activities.MyDialogActivity"-->
-            <!--android:theme="@style/Theme.MyDialog"/>-->
-        <!--<activity-->
-            <!--android:name=".activities.MyDialogActivitySingle"-->
-            <!--android:theme="@style/Theme.MyDialog"/>-->
-        <!--<activity-->
-            <!--android:name=".activities.LifeIndexDetailActivity"-->
-            <!--android:launchMode="singleTop"-->
-            <!--android:theme="@style/Theme.MyDialog"/>-->
-        <!--<activity-->
-            <!--android:name=".activities.WeatherAlarmActivity"-->
-            <!--android:launchMode="singleTop"-->
-            <!--android:theme="@style/Theme.MyDialog"/>-->
         <activity
             android:name=".activities.TimerOnTimeActivity"
             android:launchMode="singleTask"
             android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
-        <!--<activity-->
-            <!--android:name=".activities.ShakeExplainActivity"-->
-            <!--android:theme="@android:style/Theme.Translucent.NoTitleBar"/>-->
-        <!--<activity-->
-            <!--android:name=".activities.RecordDeleteBatchActivity"-->
-            <!--android:theme="@style/Transparent.Light"/>-->
-        <!--<activity-->
-            <!--android:name=".activities.CityManageActivity"-->
-            <!--android:launchMode="singleTop"-->
-            <!--android:theme="@style/Transparent.Light"/>-->
-        <!--<activity-->
-            <!--android:name=".activities.AddCityActivity"-->
-            <!--android:launchMode="singleTop"-->
-            <!--android:theme="@style/Transparent.Light"-->
-            <!--android:windowSoftInputMode="adjustUnspecified|stateHidden"/>-->
-        <!--<activity-->
-            <!--android:name=".activities.LocalAlbumActivity"-->
-            <!--android:launchMode="singleTop"-->
-            <!--android:theme="@style/Transparent.Light"/>-->
-        <!--<activity-->
-            <!--android:name=".activities.LocalAlbumDetailActivity"-->
-            <!--android:launchMode="singleTop"-->
-            <!--android:theme="@style/Transparent.Light"/>-->
-        <!--<activity-->
-            <!--android:name=".zxing.activity.CaptureActivity"-->
-            <!--android:theme="@style/Transparent"/>-->
-        <!--<activity-->
-            <!--android:name=".activities.DisplayScanResultActivity"-->
-            <!--android:theme="@style/Transparent.Light"/>-->
-        <!--<activity-->
-            <!--android:name=".activities.GenerateCodeActivity"-->
-            <!--android:theme="@style/Transparent.Light"-->
-            <!--android:windowSoftInputMode="adjustUnspecified|stateHidden"/>-->
-        <!--<activity-->
-            <!--android:name=".activities.FeedbackActivity"-->
-            <!--android:theme="@style/Transparent.Light"/>-->
-        <!--<activity-->
-            <!--android:name=".activities.AboutActivity"-->
-            <!--android:theme="@style/Transparent.Light"/>-->
-        <!--<activity-->
-            <!--android:name=".activities.FAQActivity"-->
-            <!--android:theme="@style/Transparent.Light">-->
-        <!--</activity>-->
         <receiver
             android:name=".broadcast.AlarmClockBroadcast"
             android:process=":daemon">

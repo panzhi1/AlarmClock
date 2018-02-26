@@ -1,7 +1,6 @@
 package com.strangeman.alarmclock.activities;
 
 
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -13,7 +12,6 @@ import android.widget.TextView;
 
 import com.strangeman.alarmclock.R;
 import com.strangeman.alarmclock.fragment.AlarmClockFragment;
-import com.strangeman.alarmclock.fragment.MoreFragment;
 import com.strangeman.alarmclock.fragment.StopWatchFragment;
 import com.strangeman.alarmclock.fragment.ThemeFragment;
 import com.strangeman.alarmclock.fragment.TimeFragment;
@@ -23,6 +21,9 @@ import com.strangeman.alarmclock.util.MyUtil;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Created by Administrator on 2018/2/3.
+ */
 
 public class MainActivity extends BaseActivity implements View.OnClickListener {
 

@@ -28,7 +28,7 @@ import java.util.Collection;
 import java.util.TreeMap;
 
 /**
- * Created by panzhi on 2018/2/3.
+ * Created by Administrator on 2018/2/3.
  */
 
 public class AlarmClockNewFragment extends BaseFragment implements View.OnClickListener,
@@ -401,7 +401,6 @@ public class AlarmClockNewFragment extends BaseFragment implements View.OnClickL
             // 当点击确认按钮
             case R.id.action_accept:
                 saveDefaultAlarmTime();
-
                 Intent data = new Intent();
                 data.putExtra(AlarmClockCommon.ALARM_CLOCK, mAlarmClock);
                 getActivity().setResult(Activity.RESULT_OK, data);

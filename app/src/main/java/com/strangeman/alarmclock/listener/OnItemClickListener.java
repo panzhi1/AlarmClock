@@ -3,7 +3,7 @@ package com.strangeman.alarmclock.listener;
 import android.view.View;
 
 /**
- * Created by panzhi on 2018/1/29.
+ * Created by Administrator on 2018/1/29.
  */
 
 public interface OnItemClickListener {

@@ -7,7 +7,7 @@ import android.util.Log;
 import com.squareup.leakcanary.RefWatcher;
 
 /**
- * Created by panzhi on 2018/1/30.
+ * Created by Administrator on 2018/1/30.
  */
 
 public class BaseActivitySimple extends FragmentActivity {

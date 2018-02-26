@@ -6,7 +6,7 @@ import android.util.Log;
 import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
 /**
- * Created by panzhi on 2018/2/3.
+ * Created by Administrator on 2018/2/3.
  */
 
 public class BaseActivityOrdinary extends SwipeBackActivity {

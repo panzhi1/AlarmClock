@@ -11,7 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.Scroller;
 
 /**
- * Created by panzhi on 2018/1/30.
+ * Created by Administrator on 2018/1/30.
  * 自定义滑动view
  */
 

@@ -26,7 +26,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by panzhi on 2018/2/4.
+ * Created by Administrator on 2018/2/4.
  */
 
 public class RingSelectFragment extends BaseFragment implements View.OnClickListener {

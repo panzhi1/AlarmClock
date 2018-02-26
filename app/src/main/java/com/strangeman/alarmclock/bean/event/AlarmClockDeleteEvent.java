@@ -3,7 +3,7 @@ package com.strangeman.alarmclock.bean.event;
 import com.strangeman.alarmclock.bean.AlarmClock;
 
 /**
- * Created by panzhi on 2018/2/1.
+ * Created by Administrator on 2018/2/1.
  */
 
 public class AlarmClockDeleteEvent {

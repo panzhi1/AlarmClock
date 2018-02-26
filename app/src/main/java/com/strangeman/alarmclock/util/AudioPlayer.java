@@ -11,7 +11,7 @@ import java.io.IOException;
 
 /**
  *
- * Created by panzhi on 2018/1/31.
+ * Created by Administrator on 2018/1/31.
  */
 
 public class AudioPlayer {

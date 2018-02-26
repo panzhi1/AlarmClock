@@ -26,7 +26,7 @@ import com.strangeman.alarmclock.util.OttoBus;
 import java.util.List;
 
 /**
- * Created by panzhi on 2018/1/29.
+ * Created by Administrator on 2018/1/29.
  */
 
 public class AlarmClockAdapter extends RecyclerView.Adapter<AlarmClockAdapter.MyViewHolder> {

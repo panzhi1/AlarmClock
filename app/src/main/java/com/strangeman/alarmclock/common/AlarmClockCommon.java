@@ -1,7 +1,7 @@
 package com.strangeman.alarmclock.common;
 
 /**
- * Created by panzhi on 2018/1/22.
+ * Created by Administrator on 2018/1/22.
  */
 
 public class AlarmClockCommon {

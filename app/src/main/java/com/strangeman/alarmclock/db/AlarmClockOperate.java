@@ -10,7 +10,7 @@ import org.litepal.tablemanager.Connector;
 import java.util.List;
 
 /**
- * Created by panzhi on 2018/1/30.
+ * Created by Administrator on 2018/1/30.
  */
 
 public class AlarmClockOperate {

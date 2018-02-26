@@ -7,7 +7,7 @@ import me.imid.swipebacklayout.lib.app.SwipeBackActivity;
 
 
 /**
- * Created by panzhi on 2018/1/22.
+ * Created by Administrator on 2018/1/22.
  */
 
 public class BaseActivity extends SwipeBackActivity {
