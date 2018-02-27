@@ -41,7 +41,6 @@ public class TimerOnTimeActivity extends BaseActivitySimple implements View.OnCl
         playRing();
         initViews();
 
-//        OttoBus.getInstance().post(new TimerOnTimeEvent());
     }
 
     private void playRing() {
@@ -91,8 +90,8 @@ public class TimerOnTimeActivity extends BaseActivitySimple implements View.OnCl
         // 设置铃声音量
         mAudioManager.setStreamVolume(AudioManager.STREAM_MUSIC,
                 mCurrentVolume, AudioManager.ADJUST_SAME);
-        ActivityCollector.finishAll();
         overridePendingTransition(0, R.anim.zoomout);
+        ActivityCollector.finishAll();
     }
 
     @Override

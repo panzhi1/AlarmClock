@@ -111,17 +111,6 @@
         <item name="android:textSize">18sp</item>
     </style>
 
-    <style name="single_btn">
-        <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">48dp</item>
-        <item name="android:layout_gravity">bottom|center</item>
-        <item name="android:layout_margin">19dp</item>
-        <item name="android:textSize">18sp</item>
-        <item name="android:text">@string/roger</item>
-        <item name="android:textColor">@color/white_trans90</item>
-        <item name="android:background">@drawable/bg_btn_sure</item>
-    </style>
-
     <style name="new_alarm_clcok_item_llyt">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>

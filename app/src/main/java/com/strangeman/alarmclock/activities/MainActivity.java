@@ -148,7 +148,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
             @Override
             public void onPageSelected(int index) {
                 setTabSelection(index);
-
             }
 
             @Override
