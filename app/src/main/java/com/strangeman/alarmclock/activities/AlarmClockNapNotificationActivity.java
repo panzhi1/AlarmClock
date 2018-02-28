@@ -20,8 +20,9 @@ public class AlarmClockNapNotificationActivity extends BaseActivitySimple{
                 AlarmClockCommon.ALARM_CLOCK);
         // 关闭小睡
         MyUtil.cancelAlarmClock(this, -alarmClock.getId());
-        finish();
         ActivityCollector.addActivity(this);
+        finish();
+
     }
 
     @Override

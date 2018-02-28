@@ -188,11 +188,8 @@ public class AudioPlayer {
             @Override
             public boolean onError(MediaPlayer mp, int what, int extra) {
                 Toast.makeText(mContext,mContext.getString(R.string.play_fail),Toast.LENGTH_SHORT).show();
-//                ToastUtil.showShortToast(mContext,
-//                        mContext.getString(R.string.play_fail));
                 return false;
             }
-
         });
     }
 

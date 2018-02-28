@@ -2,7 +2,6 @@ package com.strangeman.alarmclock.fragment;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.hardware.Sensor;
@@ -15,8 +14,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.OvershootInterpolator;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
@@ -208,6 +205,7 @@ public class AlarmClockFragment extends BaseFragment implements View.OnClickList
                     float zValue = Math.abs(event.values[2]);
                     // 认为用户摇动了手机，找回被删除的闹钟
                     if (xValue > 15 || yValue > 15 || zValue > 15) {
+                        ToastUtil.showShortToast(getActivity(),"晃动手机");
                         if (mDeletedAlarmClock != null) {
                             MyUtil.vibrate(getActivity());
                             AlarmClockOperate.getInstance().saveAlarmClock(mDeletedAlarmClock);
@@ -256,7 +254,6 @@ public class AlarmClockFragment extends BaseFragment implements View.OnClickList
             // 新建闹钟
             case REQUEST_ALARM_CLOCK_NEW:
                 // 插入新闹钟数据
-//                TabAlarmClockOperate.getInstance(getActivity()).insert(ac);
                 AlarmClockOperate.getInstance().saveAlarmClock(ac);
                 addList(ac);
 
@@ -287,13 +284,17 @@ public class AlarmClockFragment extends BaseFragment implements View.OnClickList
     @Subscribe
     public void OnAlarmClockDelete(AlarmClockDeleteEvent event) {
         deleteList(event);
+
+        mDeletedAlarmClock = event.getAlarmClock();
+
+        SharedPreferences share = getActivity().getSharedPreferences(
+                AlarmClockCommon.EXTRA_AC_SHARE, Activity.MODE_PRIVATE);
     }
 
 
 
     private void addList(AlarmClock ac) {
         mAlarmClockList.clear();
-
         int id = ac.getId();
         int count = 0;
         int position = 0;
@@ -330,28 +331,20 @@ public class AlarmClockFragment extends BaseFragment implements View.OnClickList
             mEditAction.setVisibility(View.VISIBLE);
             mAdapter.displayDeleteButton(false);
         }
-
         checkIsEmpty(list);
-
         mAdapter.notifyItemRemoved(position);
-//        mAdapter.notifyItemRangeChanged(position, mAdapter.getItemCount());
     }
-
     private void updateList() {
         mAlarmClockList.clear();
-
         List<AlarmClock> list = AlarmClockOperate.getInstance().loadAlarmClocks();
         for (AlarmClock alarmClock : list) {
             mAlarmClockList.add(alarmClock);
-
             // 当闹钟为开时刷新开启闹钟
             if (alarmClock.isOnOff()) {
                 MyUtil.startAlarmClock(getActivity(), alarmClock);
             }
         }
-
         checkIsEmpty(list);
-
         mAdapter.notifyDataSetChanged();
     }
 
@@ -362,7 +355,6 @@ public class AlarmClockFragment extends BaseFragment implements View.OnClickList
         } else {
             mRecyclerView.setVisibility(View.GONE);
             mEmptyView.setVisibility(View.VISIBLE);
-
             if (mSensorManager != null) {
                 mSensorManager.unregisterListener(mSensorEventListener);
             }
